@@ -2,6 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # --------------------------------------------------------------------------
 from . import consts
+import utils
 logger = utils.get_logger()
 
 
