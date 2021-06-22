@@ -2,6 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # --------------------------------------------------------------------------
 from . import consts
+logger = utils.get_logger()
 
 
 class Run(object):
@@ -194,6 +195,7 @@ class RunProfile(object):
                                          "value": "{} %".format(
                                              round(profile.gpu_utilization[gpu_id] * 100, 2))})
                 if profile.blocks_per_sm_count[gpu_id] > 0:
+                    logger.info(f"gpu id {gpu_id}, profile sm efficiency {profile.sm_efficency}")
                     gpu_metrics_data.append({"title": "Est. SM Efficiency",
                                              "value": "{} %".format(
                                                  round(profile.sm_efficency[gpu_id] * 100, 2))})
