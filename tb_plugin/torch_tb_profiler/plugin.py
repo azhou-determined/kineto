@@ -311,6 +311,9 @@ class TorchProfilerPlugin(base_plugin.TBPlugin):
                             # Use threading to avoid UI stall and reduce data parsing time
                             t = threading.Thread(target=self._load_run, args=(run_dir,))
                             t.start()
+                    if not self._is_active:
+                        self._is_active = False
+                        self._is_active_initialized_event.set()
                 except Exception as ex:
                     logger.warning("Failed to scan runs. Exception=%s", ex, exc_info=True)
 
