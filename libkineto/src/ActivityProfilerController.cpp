@@ -34,7 +34,6 @@ ActivityProfilerController::ActivityProfilerController(
 }
 
 ActivityProfilerController::~ActivityProfilerController() {
-  LOG(INFO) << "ActivityProfilerController::~ActivityProfilerController()";
   configLoader_.removeHandler(
       ConfigLoader::ConfigKind::ActivityProfiler, this);
   if (profilerThread_) {
@@ -44,7 +43,6 @@ ActivityProfilerController::~ActivityProfilerController() {
     delete profilerThread_;
     profilerThread_ = nullptr;
   }
-  VLOG(0) << "Stopped activity profiler";
 }
 
 static ActivityLoggerFactory initLoggerFactory() {

@@ -299,7 +299,7 @@ bool EventProfiler::initEventGroups() {
     eventGroupSets_ = nullptr;
   }
   if (events_.empty()) {
-    return false;
+    return true;
   }
 
   // Determine sets of groups to be collected
@@ -619,7 +619,7 @@ void EventProfiler::configure(Config& config, Config* onDemandConfig) {
   if (!sets_.empty()) {
     sets_[0].setEnabled(true);
   } else {
-    LOG(WARNING) << "No counters profiled!";
+    VLOG(0) << "No counters profiled!";
   }
 
   baseSamples_ = 0;
